@@ -4,7 +4,11 @@
 class NpmCommands
   # @return [Boolean] whether the installation succeeded
   def install(*args)
-    return false unless check_nodejs_installed
+    puts "\n================ARGS================\n"
+    puts args.inspect
+    puts "\n================/ ARGS================\n"
+
+    # return false unless check_nodejs_installed
     STDERR.puts 'Installing npm dependencies...'
     install_status = Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
       system('npm', 'install', *args)
