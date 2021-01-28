@@ -44,6 +44,10 @@ class NpmCommands
 
   def executable?(cmd)
     exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+    puts "\n================PATHEXT================\n"
+    puts ENV['PATHEXT']
+    puts "\n================/ PATHEXT================\n"
+
     ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
       exts.each do |ext|
         exe = File.join(path, "#{cmd}#{ext}")
