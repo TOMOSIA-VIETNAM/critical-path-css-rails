@@ -41,6 +41,14 @@ module CriticalPathCss
         }
       }.merge(@config.penthouse_options)
       out, err, st = Dir.chdir(GEM_ROOT) do
+        puts "\n================GEM_ROOT================\n"
+        puts GEM_ROOT.inspect
+        puts "================OPTIONS================\n"
+        puts options.inspect
+        puts "================NODE -v================\n"
+        `npm -v`
+        `node -v`
+        puts "\n================/ GEM_ROOT================\n"
         Open3.capture3('node', 'lib/fetch-css.js', JSON.dump(options))
       end
       if !st.exitstatus.zero? || out.empty? && !err.empty?
