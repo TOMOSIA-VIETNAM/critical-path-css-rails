@@ -8,6 +8,7 @@ class NpmCommands
     puts args.inspect
     puts "\n================/ ARGS================\n"
 
+    check_nodejs_installed
     # return false unless check_nodejs_installed
     STDERR.puts 'Installing npm dependencies...'
     install_status = Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
