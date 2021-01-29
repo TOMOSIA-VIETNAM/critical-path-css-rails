@@ -45,6 +45,10 @@ module CriticalPathCss
         puts GEM_ROOT.inspect
         puts "================OPTIONS================\n"
         puts options.inspect
+        puts "================SOURCE Bash_profile================\n"
+        `source ~/.bash_profile`
+        `nvm ls`
+
         puts "================NODE -v================\n"
         `npm -v`
         `node -v`
