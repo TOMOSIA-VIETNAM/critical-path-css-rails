@@ -53,8 +53,13 @@ class NpmCommands
     puts "\n================/ PATHEXT================\n"
 
     ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    puts "\n================/ PATH: #{path}================\n"
+
       exts.each do |ext|
         exe = File.join(path, "#{cmd}#{ext}")
+
+        puts "\n================/ CMD: #{cmd} ; #{ext}================\n"
+
         return exe if File.executable?(exe) && !File.directory?(exe)
       end
     end
